@@ -1,0 +1,109 @@
+* {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 20px;
+  margin: 0%;
+}
+a {
+  text-decoration: none;
+}
+button:hover {
+  cursor: pointer;
+}
+body {
+  background-color: #09091a;
+}
+
+img {
+  height: 50px;
+}
+.space {
+  width: 100%;
+}
+nav {
+  height: 50px;
+  display: flex;
+  flex-shrink: 1;
+  text-align: center;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  border: none;
+  color: #c0c0c8;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0);
+  height: 30px;
+  width: 60px;
+  position: relative;
+  left: 10px;
+}
+.search {
+  position: relative;
+}
+#searchBar {
+  width: 300px;
+  height: 35px;
+  border: none;
+  border-radius: 30px;
+  background-color: #c0c0c8;
+  transition: 500ms ease-out;
+}
+input {
+  color: black;
+}
+#searchBut {
+  border: none;
+  display: block;
+  position: absolute;
+  right: 0%;
+  top: 0%;
+  width: 75px;
+  height: 35px;
+  border-radius: 30px;
+  background-color: #1fbad6;
+}
+.user {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+}
+#username {
+  margin: 10px;
+  color: #c0c0c8;
+}
+#user-img {
+  border: #09091a;
+  border-radius: 50%;
+}
+#map-container {
+  position: relative;
+}
+#begin {
+  margin: auto;
+  position: absolute;
+  left: 50%;
+  height: 75px;
+  width: 140px;
+  transform: translateX(-50%);
+  z-index: 1000;
+  border: none;
+  color: antiquewhite;
+  border-radius: 5px;
+  background-color: #1fbad6;
+}
+#setBut,
+#driver {
+  margin: 5px;
+  border: none;
+  color: antiquewhite;
+  border-radius: 5px;
+  background-color: #1fbad6;
+}
+#map {
+  width: 100%;
+  height: 500px;
+  border-radius: 30px;
+  transition: 0.5s ease;
+}
