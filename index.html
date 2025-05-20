@@ -64,17 +64,9 @@
     </style>
     <div style="padding: 20px; text-align: center">
       <h2 style="color: #c0c0c8">Choose an Account</h2>
-      <button
-        id="openAll"
-        style="
-          margin: 10px;
-          padding: 10px 20px;
-          background-color: #1fbad6;
-          color: white;
-          border: none;
-          border-radius: 5px;
-        "
-      >
+      <button onclick="window.location.href='login.html'" class="account-btn">
+      Open All
+      </button>
         Open All
       </button>
       <div
@@ -111,16 +103,6 @@
       function openAccount(url) {
         window.open(url, "_blank");
       }
-
-      document.getElementById("openAll").addEventListener("click", () => {
-        const urls = [
-          "https://example.com/account1",
-          "https://example.com/account2",
-          "https://example.com/account3",
-          // Add more account URLs here
-        ];
-        urls.forEach((url) => window.open(url, "_blank"));
-      });
     </script>
 
     <script>
