@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Dashboard</title>
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  />
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  ></script>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    #map {
+      height: 500px;
+    }
+
+    .user-info-box {
+      padding: 20px;
+      background: #f2f2f2;
+    }
+
+    .user-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .color-dot {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      margin-right: 10px;
+      border: 1px solid #333;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="map"></div>
+  <div class="user-info-box" id="user-info-box">
+    <h3>کاربران روی نقشه:</h3>
+    <!-- اطلاعات کاربرا اینجا اضافه میشه -->
+  </div>
+
+  <script>
+    const map = L.map('map').setView([36.2972, 59.6067], 13);
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+    }).addTo(map);
+
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const infoBox = document.getElementById("user-info-box");
+
+    users.forEach(user => {
+      const marker = L.circleMarker(user.location, {
+        radius: 8,
+        fillColor: user.color,
+        color: "#000",
+        weight: 1,
+        opacity: 1,
+        fillOpacity: 0.8
+      }).addTo(map);
+
+      marker.bindPopup(`${user.name}`);
+
+      const item = document.createElement("div");
+      item.className = "user-item";
+      item.innerHTML = `
+        <div class="color-dot" style="background-color:${user.color}"></div>
+        <div>${user.name}</div>
+      `;
+      infoBox.appendChild(item);
+    });
+  </script>
+</body>
+</html>

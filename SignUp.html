@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding: 30px;
+      background: #f9f9f9;
+    }
+
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+      margin: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    #locationStatus {
+      margin-top: 10px;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <h2>Sign Up</h2>
+
+  <input type="text" id="name" placeholder="Enter your name" />
+  <br />
+  <button onclick="getLocation()">Set Location</button>
+  <div id="locationStatus"></div>
+  <input type="hidden" id="latitude" />
+  <input type="hidden" id="longitude" />
+  <br />
+  <button onclick="signUp()">Sign Up</button>
+
+  <script>
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((position) => {
+          document.getElementById("latitude").value = position.coords.latitude;
+          document.getElementById("longitude").value = position.coords.longitude;
+          document.getElementById("locationStatus").innerText = "Location set!";
+        }, () => {
+          alert("Could not get your location.");
+        });
+      } else {
+        alert("Geolocation not supported.");
+      }
+    }
+
+    function getRandomColor() {
+      const colors = ["red", "blue", "green", "orange", "purple", "pink", "yellow"];
+      return colors[Math.floor(Math.random() * colors.length)];
+    }
+
+    function signUp() {
+      const name = document.getElementById("name").value.trim();
+      const lat = parseFloat(document.getElementById("latitude").value);
+      const lng = parseFloat(document.getElementById("longitude").value);
+
+      if (!name || isNaN(lat) || isNaN(lng)) {
+        alert("Please enter your name and set your location.");
+        return;
+      }
+
+      const user = {
+        name,
+        location: [lat, lng],
+        color: getRandomColor()
+      };
+
+      const users = JSON.parse(localStorage.getItem("users")) || [];
+      users.push(user);
+      localStorage.setItem("users", JSON.stringify(users));
+
+      // رفتن به صفحه نقشه بعد از ثبت‌نام
+      window.location.href = "admin-dashboard.html";
+    }
+  </script>
+</body>
+</html>
