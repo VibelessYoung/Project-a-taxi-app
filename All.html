@@ -43,14 +43,22 @@
   </style>
 </head>
 <body>
-
   <div id="map"></div>
   <div class="user-info-box" id="user-info-box">
     <h3>کاربران روی نقشه:</h3>
     <!-- اطلاعات کاربرا اینجا اضافه میشه -->
+     <button onclick="clearUsers()" style="margin-top: 20px; padding: 5px 5px 5px 5px; background-color: red; color: white; border: none; border-radius: 5px; cursor: pointer;">
+    🗑️delete users
+  </button>
   </div>
 
   <script>
+    function clearUsers() {
+  if (confirm("confirm?!")) {
+    localStorage.removeItem("users");
+    location.reload(); 
+  }
+}
     const map = L.map('map').setView([36.2972, 59.6067], 13);
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
