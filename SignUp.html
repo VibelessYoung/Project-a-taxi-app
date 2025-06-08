@@ -5,24 +5,87 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sign Up</title>
   <style>
-    body {
-      font-family: sans-serif;
-      text-align: center;
-      padding: 30px;
-      background: #f9f9f9;
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+    * {
+      box-sizing: border-box;
     }
 
-    input, button {
-      padding: 10px;
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #121212;
+      color: #eee;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h2 {
+      font-weight: 600;
+      margin-bottom: 30px;
+      color: #bb86fc;
+      text-shadow: 0 0 8px #bb86fc;
+    }
+
+    input[type="text"] {
+      width: 280px;
+      padding: 12px 16px;
       font-size: 16px;
-      margin: 10px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
+      border: 1.5px solid #444;
+      border-radius: 8px;
+      background: #222;
+      color: #eee;
+      transition: border-color 0.3s;
+      outline: none;
+    }
+    input[type="text"]:focus {
+      border-color: #bb86fc;
+      box-shadow: 0 0 8px #bb86fc;
+    }
+
+    button {
+      cursor: pointer;
+      margin: 15px 0;
+      padding: 12px 30px;
+      font-size: 16px;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #bb86fc, #6200ee);
+      color: white;
+      box-shadow: 0 4px 10px rgba(187, 134, 252, 0.6);
+      transition: background 0.3s, box-shadow 0.3s;
+    }
+    button:hover {
+      background: linear-gradient(135deg, #9f6ef8, #7a00ff);
+      box-shadow: 0 6px 14px rgba(157, 110, 248, 0.8);
+    }
+    button:active {
+      background: #7a00ff;
+      box-shadow: none;
     }
 
     #locationStatus {
       margin-top: 10px;
-      color: green;
+      font-weight: 600;
+      color: #03dac6; /* رنگ سبز فیروزه‌ای */
+      min-height: 24px;
+    }
+    input[type="hidden"] {
+      display: none;
+    }
+
+    @media (max-width: 400px) {
+      input[type="text"] {
+        width: 100%;
+      }
+      button {
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -77,9 +140,7 @@
       const users = JSON.parse(localStorage.getItem("users")) || [];
       users.push(user);
       localStorage.setItem("users", JSON.stringify(users));
-
-      // رفتن به صفحه نقشه بعد از ثبت‌نام
-      window.location.href = "admin-dashboard.html";
+      window.location.href = "#";
     }
   </script>
 </body>

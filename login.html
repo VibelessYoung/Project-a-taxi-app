@@ -3,54 +3,87 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Login</title>
+  <title>Admin Login</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
     body {
+      margin: 0;
+      height: 100vh;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100vh;
-      background-color: #f0f2f5;
-      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #1f1f2e, #121212);
+      font-family: 'Inter', sans-serif;
+      color: #eee;
     }
 
     .login-container {
-      background-color: white;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-      width: 300px;
+      background-color: #242436;
+      padding: 40px 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.7);
+      width: 320px;
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 25px;
+      font-weight: 600;
+      font-size: 1.8rem;
+      color: #bb86fc;
+      text-shadow: 0 0 8px #bb86fc;
     }
 
     input {
       width: 100%;
-      padding: 10px;
-      margin: 10px 0;
+      padding: 12px 15px;
+      margin: 12px 0;
       font-size: 16px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
+      border-radius: 8px;
+      border: 1.5px solid #44475a;
+      background-color: #1e1e2f;
+      color: #eee;
+      outline: none;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    input::placeholder {
+      color: #999;
+    }
+    input:focus {
+      border-color: #bb86fc;
+      box-shadow: 0 0 10px #bb86fc;
     }
 
     button {
       width: 100%;
-      padding: 10px;
-      background-color: #1fbad6;
-      color: white;
+      padding: 14px;
+      margin-top: 15px;
       border: none;
-      border-radius: 5px;
+      border-radius: 8px;
       font-size: 18px;
+      font-weight: 600;
+      background: linear-gradient(135deg, #bb86fc, #7f39fb);
+      color: white;
       cursor: pointer;
+      box-shadow: 0 6px 14px rgba(187, 134, 252, 0.7);
+      transition: background 0.3s ease;
     }
-
     button:hover {
-      background-color: #1795b0;
+      background: linear-gradient(135deg, #9b6ef8, #5a1fe3);
+      box-shadow: 0 8px 18px rgba(155, 110, 248, 0.9);
+    }
+    button:active {
+      background: #5a1fe3;
+      box-shadow: none;
     }
 
     .error {
-      color: red;
-      text-align: center;
-      margin-top: 10px;
+      margin-top: 12px;
+      color: #ff5555;
+      font-weight: 600;
+      min-height: 24px;
+      user-select: none;
     }
   </style>
 </head>
