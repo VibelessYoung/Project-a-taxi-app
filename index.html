@@ -250,7 +250,7 @@
             const lng = position.coords.longitude;
             marker.setLatLng([lat, lng]).addTo(map);
             map.setView([lat, lng], 15);
-            marker.bindPopup("You are here").openPopup();
+            marker.bindPopup("your location").openPopup();
           },
           () => {
             alert("Could not get your location.");
